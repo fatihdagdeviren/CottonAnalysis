@@ -29,6 +29,8 @@ THEANO_FLAGS=mode=FAST_RUN,device=gpu,floatx=float32 python cifar10_cnn.py
 import cv2
 from DLModel import Model as myModel
 from ImProcess import Contour as contourFinder
+from FileOperations import FileOperations
+
 
 if __name__ == "__main__":
 
@@ -48,21 +50,31 @@ if __name__ == "__main__":
     #endregion
 
     #region ContourKullanimiOrnek
+
+    # image = cv2.imread('cotton.jpg')
+    #
+    # contFinder = contourFinder.ContourFinder(100, 200, image, waitKey=0, imshow=True, convertToGray=False)
+    #
+    # contFinder.GetContoursFromImage()
+    # contFinder.DrawBoxes()
+    # contFinder.DrawContours("Contours")
+    # NmsPoints = contFinder.CalculateNonMaximumSupression(0.3)
+    # contFinder.DrawBoxes()
+    # contFinder.DrawContours("NMS-03")
+    #
+    # contFinder.GetContoursFromImage()
+    # NmsPoints = contFinder.CalculateNonMaximumSupression(0.5)
+    # contFinder.DrawBoxes()
+    # contFinder.DrawContours("NMS-05")
+
+    #endregion
+
+
+    #region FileOperationsTest
+
     image = cv2.imread('cotton.jpg')
-
-    contFinder = contourFinder.ContourFinder(100, 200, image, waitKey=0, imshow=True, convertToGray=False)
-
-    contFinder.GetContoursFromImage()
-    contFinder.DrawBoxes()
-    contFinder.DrawContours("Contours")
-    NmsPoints = contFinder.CalculateNonMaximumSupression(0.3)
-    contFinder.DrawBoxes()
-    contFinder.DrawContours("NMS-03")
-
-    contFinder.GetContoursFromImage()
-    NmsPoints = contFinder.CalculateNonMaximumSupression(0.5)
-    contFinder.DrawBoxes()
-    contFinder.DrawContours("NMS-05")
+    res, message = FileOperations.CreatePickleFromFile("Merhaba.pkl", image)
+    res2, object = FileOperations.LoadPickleFromFile("Merhaba.pkl")
 
     #endregion
 

@@ -6,6 +6,7 @@ from keras.layers import Dense, Dropout, Activation, Flatten
 from keras.layers import Conv2D, MaxPooling2D
 import numpy as np
 import os
+from Utilities import Cons
 
 """
     Simdilik Modeli calistirip ogrenmeniz icin ekledim. Ilerde degistirilecek.
@@ -149,7 +150,7 @@ class MyDLM():
             filepath = "{0}/{1}".format(self.save_dir, self.model_name)
             # Load the model
             model = keras.models.load_model(filepath)
-            return model
+            return Cons.SucessVal, model
         except BaseException as e:
-            return None
+            return Cons.ErrorVal, "{0}-{1}".format(Cons.ErrorMessage, str(e))
 
