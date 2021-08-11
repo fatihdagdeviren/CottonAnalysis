@@ -30,7 +30,7 @@ import cv2
 from DLModel import Model as myModel
 from ImProcess import Contour as contourFinder
 from FileOperations import FileOperations
-
+from DLModel import Yolo as yolo
 
 if __name__ == "__main__":
 
@@ -51,7 +51,7 @@ if __name__ == "__main__":
 
     #region ContourKullanimiOrnek
 
-    # image = cv2.imread('cotton.jpg')
+    # image = cv2.imread('Temp\Images\cotton1.jpeg')
     #
     # contFinder = contourFinder.ContourFinder(100, 200, image, waitKey=0, imshow=True, convertToGray=False)
     #
@@ -72,12 +72,22 @@ if __name__ == "__main__":
 
     #region FileOperationsTest
 
-    image = cv2.imread('cotton.jpg')
-    res, message = FileOperations.CreatePickleFromFile("Merhaba.pkl", image)
-    res2, object = FileOperations.LoadPickleFromFile("Merhaba.pkl")
+    # image = cv2.imread('cotton.jpg')
+    # res, message = FileOperations.CreatePickleFromFile("Merhaba.pkl", image)
+    # res2, object = FileOperations.LoadPickleFromFile("Merhaba.pkl")
 
     #endregion
 
+    #region YOLO
+
+    yoloModel = yolo.Yolo('Temp\Images\cotton1.jpeg')
+    # yoloModel.PrintLayerNames()
+    yoloModel.Process()
+    yoloModel.DrawIndices()
+    cv2.imshow("ProcessedImage", yoloModel.processedImage)
+    cv2.waitKey(0)
+
+    #endregion
 
     print("Son")
 
