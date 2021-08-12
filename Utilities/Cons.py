@@ -1,6 +1,9 @@
 ###################
 SucessVal = "99"
-SucessMessage = "Sucess"
+SucessMessage = "Success"
 ErrorVal = "0"
 ErrorMessage = "Error"
+###################
+BitwiseAnd = "AND"
+BitwiseOr = "OR"
 ###################
