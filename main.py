@@ -1,31 +1,3 @@
-# -*- coding: utf-8 -*-
-'''
-Deep Learning Türkiye topluluğu tarafından hazırlanmıştır.
-Amaç: Fotoğraftaki nesneyi sınıflandırmak.
-Veriseti: CIFAR10 (https://www.cs.toronto.edu/~kriz/cifar.html)
-Algoritma: Evrişimli Sinir Ağları (Convolutional Neural Networks)
-Eğer arkaplanda TensorFlow kullanıyorsanız otomatik olarak GPU kullanılacaktır.
-Theano arkaplanında GPU kullanarak çalıştırmak için gereken komut:
-THEANO_FLAGS=mode=FAST_RUN,device=gpu,floatx=float32 python cifar10_cnn.py
-25 epoch sonunda hata oranı 0.65'e, 50 epoch sonunda 0.55'e düşürüldü.
-(Bu durumda hala yetersiz durumda.)
-'''
-
-
-# Label 	Description
-# 0 	airplane
-# 1 	automobile
-# 2 	bird
-# 3 	cat
-# 4 	deer
-# 5 	dog
-# 6 	frog
-# 7 	horse
-# 8 	ship
-# 9 	truck
-
-
-
 import cv2
 from DLModel import Model as myModel
 from ImProcess import Contour as contourFinder
