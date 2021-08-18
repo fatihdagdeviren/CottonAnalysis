@@ -46,8 +46,8 @@ if __name__ == "__main__":
     #region FileOperationsTest
 
     # image = cv2.imread('cotton.jpg')
-    # res, message = FileOperations.CreatePickleFromFile("Merhaba.pkl", image)
-    # res2, object = FileOperations.LoadPickleFromFile("Merhaba.pkl")
+    # res, message = FileOperations.CreateFileFromData("Merhaba.pkl", image)
+    # res2, object = FileOperations.LoadFromFile("Merhaba.pkl")
 
     #endregion
 
@@ -69,7 +69,10 @@ if __name__ == "__main__":
     #                                    [imop.lowerBrownForMask, imop.lowerGreenForMask, imop.lowerYellowForMask],
     #                                    [imop.upperBrownForMask, imop.upperGreenForMask, imop.upperYellowForMask])
 
-    retImage, _ = imop.AppyMaskToImage(image,
+    # _, image = imop.ApplyHistogramEqualizationToColoredImage(image)
+
+
+    retVal, retImage = imop.AppyMaskToImage(image,
                                        [imop.lowerWhiteForMask],
                                        [imop.upperWhiteForMask])
 

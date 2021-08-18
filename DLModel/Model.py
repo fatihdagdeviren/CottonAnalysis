@@ -7,7 +7,7 @@ from keras.layers import Conv2D, MaxPooling2D
 import numpy as np
 import os
 from Utilities import Cons
-
+import FileOperations.FileOperations as fileOperations
 """
     Simdilik Modeli calistirip ogrenmeniz icin ekledim. Ilerde degistirilecek.
 """
@@ -136,13 +136,14 @@ class MyDLM():
             # Klasör yoksa oluşturulur:
             os.makedirs(self.save_dir)
         model_path = os.path.join(self.save_dir, self.model_name)
+        ret, retMessage = fileOperations.CreateFileFromData(model, model_path)
         model.save(model_path)
         print('Saved trained model at %s ' % model_path)
-
         # Modelimizin başarısını ölçelim:
         scores = model.evaluate(x_test, y_test, verbose=1)
         print('Test loss:', scores[0])
         print('Test accuracy:', scores[1])
+
 
     def GetModelFromFile(self):
         try:
